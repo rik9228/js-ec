@@ -43,10 +43,12 @@
     // 購入ボタンを押したとき
     bButton.addEventListener("click", (e) => {
       e.preventDefault();
-      const tItem = e.target;
+      const tNext = bButton.nextElementSibling;
       const tItemIndex = Number(e.target.dataset.num);
       const tItemPrice = Number(e.target.dataset.price);
       const tItemName = e.target.dataset.name;
+
+      tNext.disabled = false;
 
       //データ保存用の配列に商品データを追加
       saveItems.push({
@@ -67,12 +69,20 @@
   });
 
   $delButton.forEach((dButton, index) => {
+    if (dButton.previousElementSibling.disabled) {
+      dButton.disabled = false;
+    } else {
+      dButton.disabled = true;
+    }
+
     dButton.addEventListener("click", (e) => {
       const $prevButton = dButton.previousElementSibling;
       const eNum = Number(e.target.previousElementSibling.dataset.num);
       const ePrice = Number(e.target.previousElementSibling.dataset.price);
 
       decCount(ePrice);
+
+      dButton.disabled = true;
 
       if ($prevButton.disabled) {
         $prevButton.disabled = false;
@@ -134,10 +144,12 @@
 
   // 購入点数の減少処理
   const decCount = (price) => {
-    if (sumQuant === 0) {
+    if (sumQuant === 0 || sumPrice < 0) {
+      price = 0;
       sumQuant = 0;
       return;
     }
+
     sumQuant--;
     sumPrice = sumPrice - price;
     updateStatus(sumPrice, sumQuant);
