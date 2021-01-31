@@ -322,14 +322,12 @@ object {
 }
 
 .nav-bottom-check:checked + .nav-bottom-drawer {
-  -webkit-transform: rotate(135deg);
-          transform: rotate(135deg);
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 
 .nav-bottom-check:checked ~ .nav-bottom__wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
 }
 
 .nav-bottom-drawer {
@@ -342,8 +340,8 @@ object {
   margin-left: 32px;
   border-top: 1px solid #000;
   border-right: 1px solid #000;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
   cursor: pointer;
 }
 
@@ -362,7 +360,9 @@ object {
 
 .nav-bottom__wrapper {
   padding: 4em 8em;
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
