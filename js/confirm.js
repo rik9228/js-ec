@@ -1,4 +1,5 @@
-(() => {
+'use strict';
+{
   const ITEMS = JSON.parse(localStorage.getItem("items")); //ローカルストレージの商品データの配列
   const $itemList = document.getElementById("confirm__listFrame"); //カートの商品を追加する要素
   const $confirmPrice = document.getElementById("confirm__price"); //カートの商品を追加する要素
@@ -44,4 +45,4 @@
   $prevTop.addEventListener("click", () => {
     localStorage.setItem("items", JSON.stringify(saveItems));
   });
-})();
+}

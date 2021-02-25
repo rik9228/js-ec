@@ -1,6 +1,10 @@
-const $toTop = document.getElementById("toTop");
+"use strict";
 
-$toTop.addEventListener("click", () => {
-  // ローカルストレージの削除
-  localStorage.clear();
-});
+{
+  const $toTop = document.getElementById("toTop");
+
+  $toTop.addEventListener("click", () => {
+    // ローカルストレージの削除
+    localStorage.clear();
+  });
+}

@@ -1,6 +1,6 @@
 "use strict";
 
-(() => {
+{
   const $resetButton = document.querySelector(".nav-bottom__link--reset");
   const $confirm = document.querySelectorAll(".confirm");
   const $buyButton = document.querySelectorAll(".shop__button");
@@ -191,4 +191,4 @@
       elem.disabled = false;
     });
   };
-})();
+}
